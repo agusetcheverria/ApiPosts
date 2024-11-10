@@ -9,6 +9,7 @@ use App\Models\Post;
 class PostController extends Controller {
     public function index() {
         return Post::all();
+        return response()->json($posts);
     }
 
     public function store(Request $request) {
@@ -24,6 +25,34 @@ class PostController extends Controller {
             'content' => $request->content,
             'date' => now(),
         ]);
+    }
+
+    public function show($id)
+    {
+        $post = Post::find($id);
+        if (!$post) {
+            return response()->json(['message' => 'Post no encontrado'], 404);
+        }
+        return response()->json($post);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $post = Post::find($id);
+        if (!$post) {
+            return response()->json(['message' => 'Post no encontrado'], 404);
+        }
+        $post->update($request->all());
+        return response()->json($post);
+    }
+    public function destroy($id)
+    {
+        $post = Post::find($id);
+        if (!$post) {
+            return response()->json(['message' => 'Post no encontrado'], 404);
+        }
+        $post->delete();
+        return response()->json(['message' => 'Post eliminado']);
     }
 }
 

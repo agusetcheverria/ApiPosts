@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Posts</title>
+</head>
+<body>
+    <h1>Posts</h1>
+    <ul id="post-list"></ul> <!-- Lista de posts -->
+
+    <h2>Crear un Nuevo Post</h2>
+    <form id="create-post-form">
+        <input type="text" id="title" placeholder="Título" required />
+        <textarea id="content" placeholder="Contenido" required></textarea>
+        <button type="submit">Crear Post</button>
+    </form>
+
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

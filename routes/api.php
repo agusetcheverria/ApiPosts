@@ -3,5 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PostController;
 
+Route::apiResource('posts', PostController::class);
 Route::get('/posts', [PostController::class, 'index']);
 Route::post('/posts', [PostController::class, 'store']);
+

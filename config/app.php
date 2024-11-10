@@ -126,6 +126,7 @@ return [
     'providers' => [
     // Otros proveedores
     App\Providers\RouteServiceProvider::class,
+    Illuminate\Filesystem\FilesystemServiceProvider::class,
 ],
 
 
